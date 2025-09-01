@@ -8,12 +8,16 @@ set BOT_DIR=C:\TelegramBot
 
 cd /d "%BOT_DIR%"
 
-:: Git repoga bog'lash va fayllarni yuklash
+:: Remote’ni o‘chirib, yangi remote qo‘shish
+git remote remove origin 2>nul
+
 git init
 git add .
 git commit -m "Add all bot files"
 git branch -M main
 git remote add origin https://github.com/qwerty-007100/telegram-bot.git
-git push -u origin main
+
+:: Force push bilan hamma fayllarni GitHub’ga tushirish
+git push -u origin main --force
 
 pause
